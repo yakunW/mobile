@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="GBK"?>
+<excelImport>
+
+        <repeatImport>
+                <![CDATA[
+                        A1 =序号,
+                        B1 =项目编号,
+                        C1 =项目名称,
+                        D1 =项目省区,
+                        E1 =建设单位,
+                        F1 =业务大区（大区/分院）,
+                        G1 =计划经理,
+                        H1 =客户经理,
+                        I1=项目负责人,
+                        J1=主专业,
+                        K1=主类,
+                        L1=分类,
+                        M1=小类,
+                        N1=分项,
+                        O1=产品,
+                        P1=产品包含的常规专业,
+                        Q1=计量单位,
+                        R1=项目规模调整系数,
+                        S1=项目技术调整系数,
+                        T1=项目地区调整系数,
+                        
+                ]]>
+                <endCode>End</endCode>
+        </repeatImport>
+        
+        <!-- 校验器定义 -->
+        <validators>
+                <validator name="validator1" value="com.nami.excelimport.validate.NotNullValidator" />
+                <validator name="validator2" value="com.nami.excelimport.validate.LengthValidator" />
+                <validator name="validator3" value="com.nami.excelimport.validate.AbstractValidator" />
+        </validators>
+
+        <!-- 需要校验的单元格 -->
+        <cell-validators>
+                <cell-validator cellname="K1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                <cell-validator cellname="L1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                <cell-validator cellname="M1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="N1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="O1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="P1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="Q1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="R1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="S1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+                                <cell-validator cellname="T1">
+                        <validator name="validator1" />
+                        <validator name="validator2" />
+                </cell-validator>
+        </cell-validators>
+        
+</excelImport>

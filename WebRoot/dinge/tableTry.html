@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>NewDocument</TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">　
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<script language="JavaScript">　　
+var colnum=0;　 　　
+var begin_x; 　　
+var begin_y;　 　　
+var drag_flag=false;　 　　
+document.onmousedown = mouseDragBegin　　
+document.onmousemove = mouseDrag　　
+document.onmouseup = mouseDragEnd　　
+function setDrag(col){
+drag_flag = true;　 　　
+colnum=col; 　　
+}
+function mouseDragBegin(){
+if(drag_flag==true){
+begin_x=event.x;
+begin_y=event.y;
+}
+}　
+function mouseDrag(){
+if(drag_flag==true){
+if(window.event.button==1){
+var now_x=event.x;
+var now_y=event.y;
+if(colnum==0){
+var value=ColRight1[0].style.pixelWidth+now_x-begin_x;
+for(var i=0;i<ColRight1.length;i++){
+ColRight1[i].style.pixelWidth=value;
+}
+if(ColRight1[0].style.pixelWidth<=10){
+for(var　i=0;i<ColRight1.length;i++){
+ColRight1[i].style.pixelWidth=10;
+}
+}　　
+begin_x=now_x;
+}else if(colnum==1){
+var value=ColRight2[0].style.pixelWidth+now_x-begin_x;
+for(var i=0;i<ColRight1.length;i++){
+ColRight2[i].style.pixelWidth=value;
+}
+if(ColRight2[0].style.pixelWidth<=10){
+for　(var　i=0;i<ColRight2.length;i++){
+ColRight2[i].style.pixelWidth=10; 　
+}
+}　
+begin_x=now_x;
+}else if(colnum==2){
+var value=ColRight3[0].style.pixelWidth+now_x-begin_x;
+for(var i=0;i<ColRight1.length;i++){
+ColRight3[i].style.pixelWidth= value;
+}
+if(ColRight3[0].style.pixelWidth<=10){
+for　(var　i=0;i<ColRight3.length;i++){
+ColRight3[i].style.pixelWidth=10;
+}
+}
+begin_x=now_x;
+}else if(colnum==3){
+var value=ColRight4[0].style.pixelWidth+now_x-begin_x;
+for(var i=0;i<ColRight1.length;i++){
+ColRight4[i].style.pixelWidth=value;
+}
+if(ColRight4[0].style.pixelWidth<=10){
+for(var　i=0;i<ColRight4.length;i++){
+ColRight4[i].style.pixelWidth　=　10; 
+}
+}
+begin_x=now_x;
+}
+}
+}
+}
+function　mouseDragEnd(){ 　　
+drag_flag=false; 　　
+}　 　　
+//-->　　
+</script>　　
+</HEAD>　　
+　　
+<BODY>
+<TABLE ID="tblTitle" BORDER=0 cellspacing=0 cellpadding=0 style="border-collapse:collapse;">
+<tr height=30>
+<td class="tdTitle"><DIV ID=ColRight1 style="width:100px;background-color:red;"  unselectable="on" onMouseDown="setDrag(0)">000</DIV></td>
+<td class="tdTitle"><DIV ID=ColRight2 style="width:100px;background-color:green" unselectable="on" onMouseDown="setDrag(1)">111</DIV></td>
+<td class="tdTitle"><DIV ID=ColRight3 style="width:120px;background-color:red"   unselectable="on" onMouseDown="setDrag(2)">222</DIV></td>
+<td class="tdTitle"><DIV ID=ColRight4 style="width:50px;background-color:green" unselectable="on" onMouseDown="setDrag(3)">333</DIV></td>
+</tr>
+<tr height=30>
+<td class="tdTitle"><DIV ID=ColRight1 style="width:100px;background-color:red" unselectable="on" onMouseDown="setDrag(0)">000</DIV></td>
+<td class="tdTitle"><DIV ID=ColRight2 style="width:100px;background-color:green" unselectable="on" onMouseDown="setDrag(1)">111</DIV></td>
+<td class="tdTitle"><DIV ID=ColRight3 style="width:120px;background-color:red" unselectable="on" onMouseDown="setDrag(2)">222</DIV></td>
+<td class="tdTitle"><DIV ID=ColRight4 style="width:50px;background-color:green" unselectable="on" onMouseDown="setDrag(3)">333</DIV></td>
+</tr>
+</TABLE>
+</BODY>
+</HTML>

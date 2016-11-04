@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- 配置了系列常量 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.custom.i18n.resources" value="resource"/>
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+
+<!-- author:xuxiaoyin -->  
+<package name="xjson" extends="json-default" namespace="/">
+       <action name="fenleiJson" class="com.xxy.struts2.action.LieBiaoAction" method="Fenlei">
+          <result name="success" type="json">
+          </result>
+       </action>
+       <action name="xiaoleiJson" class="com.xxy.struts2.action.LieBiaoAction" method="Xiaolei">
+          <result name="success" type="json">
+          </result>
+       </action>
+       <action name="fenxiangJson" class="com.xxy.struts2.action.LieBiaoAction" method="Fenxiang">
+          <result name="success" type="json">
+          </result>
+       </action>
+       <action name="chanpinJson" class="com.xxy.struts2.action.LieBiaoAction" method="Chanpin">
+          <result name="success" type="json">
+          </result>
+       </action>
+       <action name="TchanpinJson" class="com.xxy.struts2.action.ChanpinAction" method="Tchanpin">
+          <result name="success" type="json">
+          </result>
+       </action>
+       
+</package>
+
+<!-- author:xuxiaoyin --> 
+<package name="piliang" extends="struts-default" namespace="/">
+
+  
+   <action name="newdata" class="com.xxy.struts2.action.NewdataAction" method="add">
+     <result name="success">/piliang/dinge.jsp</result>
+     <result name="Failure">/piliang/fail.jsp</result>     
+   </action>
+   <action name="XifenData" class="com.xxy.struts2.action.XifenAction" method="add">
+     <result name="success">/qiuhe-success.jsp</result>
+     <result name="Failure">/piliang/fail.jsp</result>     
+   </action>
+   <action name="xishu" class="com.xxy.struts2.action.XsAction" method="addXs">
+     <result name="SUCCESS">/piliang/xishu.jsp</result>
+     <result name="Failure">/piliang/fail.jsp</result>     
+   </action>
+</package>
+
+<!-- author:wangyakun -->
+
+<package name="wyk" extends="struts-default" namespace="/">
+
+        <action name="upload" class="com.wyk.action.UploadAction">
+        	<param name="savePath">/upload</param>
+        	<result name="input">/back/standardAddUpdate.jsp</result>
+        	<result name="error">/back/error.jsp</result>
+            <result>/back/ok.jsp</result>
+        </action>
+        
+        <action name="recoveryUpload" class="com.wyk.action.RecoveryUploadAction">
+            <result name="input">/back/dataBackupRecovery.jsp</result>
+            <result name="success">/back/backUpResult.jsp</result>
+        </action>
+   
+        <action name="download" class="com.wyk.action.DownloadAction">
+          <result name="success" type="stream">
+            <param name="contentType">application/octet-stream;charset=utf-8</param>
+            <param name="inputName">downloadFile</param>
+            <param name="contentDisposition">attachment;filename=${fileName}</param>
+            <param name="bufferSize">4096</param>
+          </result>
+        </action>
+        
+        <action name="showStandard" class="com.wyk.action.ShowStandardAction" method="execute">
+          <result name="success">/back/showStandard.jsp</result>         
+        </action>
+        
+        <action name="searchStandard" class="com.wyk.action.SearchStandardAction" method="searchStandard">
+          <result name="input">/back/showStandard.jsp</result>
+          <result name="success">/back/showStandard.jsp</result>
+        </action>
+        
+        <action name="deleteStandard" class="com.wyk.action.DeleteStandardAction" method="deleteStandard">
+          <result name="success">/back/showStandard.jsp</result>
+        </action>
+        
+        <action name="showXf" class="com.wyk.action.ShowXfAction" method="showXf">
+          <result name="success">/back/showXf.jsp</result>
+        </action>
+        
+        <action name="showXs" class="com.wyk.action.ShowXsAction" method="showXs">
+          <result name="success">/back/showXs.jsp</result>
+        </action>
+        
+        <action name="backUp" class="com.wyk.action.BackUpAction" >
+          <result name="success">/back/backUpResult.jsp</result>
+        </action>
+    </package>
+	
+	<!--author:szh 数据上传模块 -->
+	
+	
+  <package name="up" extends="struts-default" namespace="/">
+   
+   <action name="up" class="com.szh.struts2.action.UpAction" method="addData">
+      <param name="savePath">upload</param>
+     <result name="SUCCESS">/dinge/showdata.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <action name="jiucuo" class="com.szh.struts2.action.JiucuoAction" method="fError">
+     <result name="SUCCESS">/dinge/showdata.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <action name="xifen" class="com.szh.struts2.action.XifenAction" method="addXf">
+     <result name="SUCCESS">/dinge/xifen.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <action name="xifendone" class="com.szh.struts2.action.XifenDoneAction" method="addXf">
+     <result name="SUCCESS">/dinge/xifen.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <action name="xishu" class="com.szh.struts2.action.XsAction" method="addXs">
+     <result name="SUCCESS">/dinge/xishu.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   <action name="export" class="com.szh.struts2.action.ExportAction" method="export">
+     <result name="SUCCESS">/dinge/exportsuccess.html</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   <action name="exportexecel" class="com.szh.struts2.action.ExportAction" method="exportExcel">
+     <result name="SUCCESS">/dinge/download.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <action name="hesuan" class="com.szh.struts2.action.HsAction" method="hesuan">
+     <result name="SUCCESS">/dinge/showdata.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+      
+   <!-- 以下是查询模块 -->
+   <action name="search" class="com.szh.struts2.action.SearchAction" method="search">
+     <result name="SUCCESS">/dinge/search.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   <action name="searchpiliang" class="com.szh.struts2.action.SearchAction" method="searchpiliang">
+     <result name="SUCCESS">/dinge/search.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   
+   
+   
+   <action name="schagain" class="com.szh.struts2.action.SchagainAction" method="schagain">
+     <result name="SUCCESS">/dinge/search.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+ 
+   <action name="searchXf" class="com.szh.struts2.action.SearchXfAction" method="addXf">
+     <result name="SUCCESS">/dinge/searchXf.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <!-- 方法一 -->
+   <action name="searchOp" class="com.szh.struts2.action.SearchOpAction" method="searchOp">
+     <result name="SUCCESS">/dinge/searchOp.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <!-- 方法二 -->
+   <action name="searchOp1" class="com.szh.struts2.action.SearchOp1Action" method="searchOp">
+     <result name="SUCCESS">/dinge/searchOptest.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   <action name="sxf" class="com.szh.struts2.action.SxfAction" method="searchXf">
+     <result name="SUCCESS">/dinge/sxf.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>   
+   
+   <!-- 方法三 -->
+   <action name="saveAs" class="com.szh.struts2.action.UpAction" method="addDatatest">
+     <result name="SUCCESS">/dinge/showdata.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   <action name="save" class="com.szh.struts2.action.UpAction" method="updateDatatest">
+     <result name="SUCCESS">/dinge/showdata.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+   
+   
+   
+   <action name="deleteData" class="com.szh.struts2.action.DeleteDataAction" method="deletedata">
+     <result name="SUCCESS">/dinge/search.jsp</result>
+     <result name="Failure">/dinge/Failure.jsp</result>     
+   </action>
+
+  </package>
+  <!-- author:humin -->  
+   <package name="employee"  namespace="/employee" extends="struts-default">
+	 
+	 	<action name="scorePaths" class="com.hm.action.importAction" method="checkScore"/>
+ 		 
+	 	<action name="importSc" class="com.hm.action.importAction" method="importSc">
+            <result name="success">/employee/result.jsp</result>
+            <result name="input">/employee/importSc.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="importSingle" class="com.hm.action.importAction" method="importSingle">
+           <interceptor-ref name="fileUpload"> 
+           		<param name="allowedTypes"> 
+          		 application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          		 </param> 
+           </interceptor-ref> 
+           <interceptor-ref name="defaultStack"/>
+            <result name="success">/employee/result.jsp</result>
+            <result name="input">/employee/importH_P.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="check_export" class="com.hm.action.importAction" method="check_export">
+ 		 	<result name="success">/employee/result.jsp</result>
+            <result name="input">/employee/result.jsp</result>
+ 		 </action>
+ 		 
+	 </package>	 
+	 
+	 <package name="cooper"  namespace="/cooper" extends="struts-default">
+	 	<action name="cooperPaths" class="com.hm.action.cooperAction" method="importTwo"/>
+	 	
+	 	<action name="importCooper" class="com.hm.action.cooperAction" method="importCoroper">
+            <result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/importCooper.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="calCredit" class="com.hm.action.cooperAction" method="calCredit">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="starLevel" class="com.hm.action.cooperAction" method="starLevel">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="yearCredit" class="com.hm.action.cooperAction" method="yearCredit">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="orderCredit" class="com.hm.action.cooperAction" method="orderCredit">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="nameSelect" class="com.hm.action.cooperAction" method="nameSelect">
+ 		 	<result name="list">/cooper/nameSelList.jsp</result>
+            <result name="input">/cooper/calCredit.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="rename" class="com.hm.action.cooperAction" method="rename">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="rename2" class="com.hm.action.cooperAction" method="rename2">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="exportAny" class="com.hm.action.cooperAction" method="exportAny">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="delete" class="com.hm.action.cooperAction" method="delete">
+ 		 	<result name="success">/cooper/result.jsp</result>
+ 		 </action>
+ 		 
+ 		 <action name="importBasic" class="com.hm.action.cooperAction" method="importBasic">
+ 		 	<result name="success">/cooper/result.jsp</result>
+            <result name="input">/cooper/result.jsp</result>
+ 		 </action>
+	 </package>
+</struts>    
